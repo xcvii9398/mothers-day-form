@@ -1,1 +1,636 @@
-test
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>母親節限定活動｜反作用力訓練空間</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+TC:wght@300;400;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #08060f;
+    --pink: #ff2d78;
+    --pink-glow: rgba(255,45,120,0.18);
+    --blue: #00d4ff;
+    --blue-glow: rgba(0,212,255,0.15);
+    --purple: #7b2fff;
+    --white: #f0eaff;
+    --muted: #7a6e99;
+    --border: rgba(120,100,180,0.22);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--bg);
+    color: var(--white);
+    font-family: 'Noto Sans TC', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px);
+    pointer-events: none;
+    z-index: 9999;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero {
+    position: relative;
+    z-index: 1;
+    padding: 64px 24px 52px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(123,47,255,0.28) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 20% 80%, rgba(255,45,120,0.2) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 80% 80%, rgba(0,212,255,0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: var(--blue);
+    border: 1px solid var(--blue);
+    padding: 5px 18px;
+    margin-bottom: 24px;
+    position: relative;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(0,212,255,0.2);
+  }
+  .hero-tag::before {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    padding: 5px 18px;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: var(--pink);
+    clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
+    animation: glitch1 4s infinite;
+  }
+  @keyframes glitch1 {
+    0%,90%,100% { opacity: 0; transform: translateX(0); }
+    92% { opacity: 1; transform: translateX(-3px); }
+    94% { opacity: 0; }
+    96% { opacity: 1; transform: translateX(3px); }
+    98% { opacity: 0; }
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 11vw, 88px);
+    letter-spacing: 6px;
+    line-height: 1.0;
+    position: relative;
+    margin-bottom: 6px;
+  }
+  .line-pink { color: var(--pink); text-shadow: 0 0 24px var(--pink), 0 0 48px rgba(255,45,120,0.4); animation: flickerPink 6s infinite; }
+  .line-blue { color: var(--blue); text-shadow: 0 0 24px var(--blue), 0 0 48px rgba(0,212,255,0.4); animation: flickerBlue 7s 1.5s infinite; }
+  .line-white { color: var(--white); animation: flickerWhite 8s 0.8s infinite; }
+  @keyframes flickerPink {
+    0%,48%,100% { opacity:1; text-shadow: 0 0 24px var(--pink), 0 0 48px rgba(255,45,120,0.4); }
+    49%  { opacity:0.3; text-shadow: none; }
+    50%  { opacity:1; text-shadow: 0 0 40px var(--pink), 0 0 80px rgba(255,45,120,0.7); }
+    51%  { opacity:0.5; text-shadow: none; }
+    52%  { opacity:1; text-shadow: 0 0 24px var(--pink), 0 0 48px rgba(255,45,120,0.4); }
+    75%,77% { opacity:0.6; text-shadow: 0 0 8px var(--pink); }
+    76%  { opacity:1; text-shadow: 0 0 24px var(--pink), 0 0 48px rgba(255,45,120,0.4); }
+  }
+  @keyframes flickerBlue {
+    0%,55%,100% { opacity:1; text-shadow: 0 0 24px var(--blue), 0 0 48px rgba(0,212,255,0.4); }
+    56%  { opacity:0.2; text-shadow: none; }
+    57%  { opacity:1; text-shadow: 0 0 48px var(--blue), 0 0 96px rgba(0,212,255,0.8); }
+    58%  { opacity:0.4; text-shadow: none; }
+    59%  { opacity:1; text-shadow: 0 0 24px var(--blue), 0 0 48px rgba(0,212,255,0.4); }
+  }
+  @keyframes flickerWhite {
+    0%,62%,100% { opacity:1; }
+    63%  { opacity:0.4; }
+    63.5%{ opacity:1; }
+    64%  { opacity:0.2; }
+    65%  { opacity:1; }
+    85%,85.5% { opacity:0.7; }
+    85.2%{ opacity:1; }
+  }
+  .hero-sub {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 4px;
+    margin-top: 14px;
+    position: relative;
+  }
+  .hero-desc {
+    max-width: 460px;
+    margin: 28px auto 0;
+    font-size: 14px;
+    color: rgba(240,234,255,0.75);
+    line-height: 1.9;
+    position: relative;
+  }
+  .hero-desc strong { color: var(--pink); font-weight: 500; }
+  .hero-gifts {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .gift-pill {
+    border-radius: 2px;
+    padding: 7px 18px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-family: 'Share Tech Mono', monospace;
+  }
+  .gift-pill.pink { color: var(--pink); border: 1px solid var(--pink); background: var(--pink-glow); box-shadow: 0 0 12px rgba(255,45,120,0.2); }
+  .gift-pill.blue { color: var(--blue); border: 1px solid var(--blue); background: var(--blue-glow); box-shadow: 0 0 12px rgba(0,212,255,0.2); }
+  .cyber-line {
+    position: relative;
+    z-index: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--pink), var(--blue), transparent);
+    opacity: 0.5;
+  }
+  .form-wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 44px 24px 80px;
+  }
+  .section-title {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title.pink-label { color: var(--pink); }
+  .section-title.blue-label { color: var(--blue); }
+  .section-title.pink-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(255,45,120,0.4), transparent); }
+  .section-title.blue-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(0,212,255,0.4), transparent); }
+  .steps {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .step {
+    flex: 1;
+    min-width: 140px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 16px 12px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .step::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+  .step:nth-child(1)::before { background: var(--pink); box-shadow: 0 0 8px var(--pink); }
+  .step:nth-child(2)::before { background: var(--purple); box-shadow: 0 0 8px var(--purple); }
+  .step:nth-child(3)::before { background: var(--blue); box-shadow: 0 0 8px var(--blue); }
+  .step-num { font-family: 'Bebas Neue', sans-serif; font-size: 30px; line-height: 1; margin-bottom: 6px; }
+  .step:nth-child(1) .step-num { color: var(--pink); text-shadow: 0 0 10px rgba(255,45,120,0.5); }
+  .step:nth-child(2) .step-num { color: var(--purple); text-shadow: 0 0 10px rgba(123,47,255,0.5); }
+  .step:nth-child(3) .step-num { color: var(--blue); text-shadow: 0 0 10px rgba(0,212,255,0.5); }
+  .step-text { font-size: 11px; color: var(--muted); line-height: 1.6; font-family: 'Share Tech Mono', monospace; letter-spacing: 0.5px; }
+  .notice {
+    background: rgba(0,212,255,0.04);
+    border: 1px solid rgba(0,212,255,0.2);
+    border-left: 2px solid var(--blue);
+    border-radius: 0 2px 2px 0;
+    padding: 16px 20px;
+    margin-bottom: 36px;
+    box-shadow: inset 0 0 20px rgba(0,212,255,0.03);
+  }
+  .notice p { font-size: 13px; color: rgba(240,234,255,0.6); line-height: 1.9; }
+  .notice .hl-blue { color: var(--blue); font-weight: 500; text-shadow: 0 0 8px rgba(0,212,255,0.4); }
+  /* carnation SVG layer */
+  .carnation-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .carnation-layer svg { position: absolute; }
+  .field-group { margin-bottom: 24px; }
+  label {
+    display: block;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  label .req { color: var(--pink); margin-left: 3px; }
+  input[type="text"], input[type="tel"], input[type="email"], select, textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(120,100,180,0.25);
+    border-radius: 2px;
+    padding: 12px 16px;
+    color: var(--white);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    -webkit-appearance: none;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--pink);
+    background: rgba(255,45,120,0.04);
+    box-shadow: 0 0 0 3px rgba(255,45,120,0.08), 0 0 12px rgba(255,45,120,0.08);
+  }
+  input::placeholder, textarea::placeholder { color: rgba(122,110,153,0.5); font-family: 'Noto Sans TC', sans-serif; }
+  select option { background: #12091e; color: var(--white); }
+  textarea { resize: vertical; min-height: 88px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .cyber-box {
+    position: relative;
+    background: rgba(255,255,255,0.015);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 24px 20px;
+    margin-bottom: 28px;
+  }
+  .cyber-box::before, .cyber-box::after { content: ''; position: absolute; width: 12px; height: 12px; border-style: solid; }
+  .cyber-box::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; border-color: var(--pink); }
+  .cyber-box::after { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; border-color: var(--blue); }
+  .submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: transparent;
+    border: 1px solid var(--pink);
+    border-radius: 2px;
+    color: var(--pink);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.25s, box-shadow 0.25s;
+    margin-top: 8px;
+    text-shadow: 0 0 8px rgba(255,45,120,0.5);
+    box-shadow: 0 0 12px rgba(255,45,120,0.15), inset 0 0 12px rgba(255,45,120,0.04);
+  }
+  .submit-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--pink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: -1;
+  }
+  .submit-btn:hover { color: #fff; box-shadow: 0 0 24px rgba(255,45,120,0.5); text-shadow: none; }
+  .submit-btn:hover::before { transform: scaleX(1); }
+  .submit-btn:active { transform: scale(0.99); }
+  .submit-btn:disabled { border-color: #333; color: #444; box-shadow: none; text-shadow: none; cursor: not-allowed; }
+  #msg-success, #msg-error { display: none; }
+  #msg-success {
+    background: rgba(0,212,255,0.06);
+    border: 1px solid rgba(0,212,255,0.4);
+    border-radius: 2px;
+    padding: 24px;
+    text-align: center;
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgba(0,212,255,0.1);
+  }
+  #msg-success h3 { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 4px; color: var(--blue); text-shadow: 0 0 16px rgba(0,212,255,0.6); margin-bottom: 10px; }
+  #msg-success p { font-size: 13px; color: rgba(240,234,255,0.7); line-height: 1.8; }
+  #msg-error { background: rgba(255,45,120,0.06); border: 1px solid rgba(255,45,120,0.35); border-radius: 2px; padding: 16px; text-align: center; color: var(--pink); margin-top: 16px; font-size: 13px; font-family: 'Share Tech Mono', monospace; }
+  .footer { position: relative; z-index: 1; text-align: center; padding: 28px 24px; font-family: 'Share Tech Mono', monospace; font-size: 11px; letter-spacing: 2px; color: rgba(122,110,153,0.45); border-top: 1px solid rgba(120,100,180,0.15); }
+  /* neon tube wiring */
+  .neon-frame {
+    position: relative;
+    display: inline-block;
+    padding: 16px 28px 20px;
+    margin: 0 auto;
+  }
+  .neon-frame svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+  }
+  @keyframes wireFlickerPink {
+    0%,47%,100% { opacity:1; filter: drop-shadow(0 0 4px #ff2d78) drop-shadow(0 0 10px rgba(255,45,120,0.6)); }
+    48%  { opacity:0.2; filter: none; }
+    49%  { opacity:1; filter: drop-shadow(0 0 8px #ff2d78) drop-shadow(0 0 20px rgba(255,45,120,0.9)); }
+    50%  { opacity:0.5; filter: none; }
+    51%  { opacity:1; filter: drop-shadow(0 0 4px #ff2d78) drop-shadow(0 0 10px rgba(255,45,120,0.6)); }
+    74%,76% { opacity:0.6; filter: drop-shadow(0 0 2px #ff2d78); }
+    75%  { opacity:1; filter: drop-shadow(0 0 4px #ff2d78) drop-shadow(0 0 10px rgba(255,45,120,0.6)); }
+  }
+  @keyframes wireFlickerBlue {
+    0%,54%,100% { opacity:1; filter: drop-shadow(0 0 4px #00d4ff) drop-shadow(0 0 10px rgba(0,212,255,0.6)); }
+    55%  { opacity:0.15; filter: none; }
+    56%  { opacity:1; filter: drop-shadow(0 0 12px #00d4ff) drop-shadow(0 0 24px rgba(0,212,255,0.9)); }
+    57%  { opacity:0.3; filter: none; }
+    58%  { opacity:1; filter: drop-shadow(0 0 4px #00d4ff) drop-shadow(0 0 10px rgba(0,212,255,0.6)); }
+  }
+  @keyframes wireFlickerPurple {
+    0%,68%,100% { opacity:1; filter: drop-shadow(0 0 4px #7b2fff) drop-shadow(0 0 10px rgba(123,47,255,0.6)); }
+    69%  { opacity:0.2; filter: none; }
+    70%  { opacity:1; filter: drop-shadow(0 0 8px #7b2fff); }
+    71%  { opacity:0.4; filter: none; }
+    72%  { opacity:1; filter: drop-shadow(0 0 4px #7b2fff) drop-shadow(0 0 10px rgba(123,47,255,0.6)); }
+  }
+  .wire-pink   { animation: wireFlickerPink   6s infinite; }
+  .wire-blue   { animation: wireFlickerBlue   7s 1.5s infinite; }
+  @media (max-width: 480px) { .two-col { grid-template-columns: 1fr; } .hero h1 { font-size: 54px; } }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <!-- petal decorations -->
+  <div class="carnation-layer" id="petal-layer"></div>
+  <div class="hero-tag" data-text="MOTHER'S DAY SPECIAL EVENT">MOTHER'S DAY SPECIAL EVENT</div>
+  <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,11vw,88px);letter-spacing:6px;line-height:1.0;margin-bottom:6px;">
+      <span class="line-pink">母親節</span><br>
+      <span class="line-white">限定</span><span class="line-blue">運動</span><br>
+      <span class="line-white">體驗</span>
+    </h1>
+  <p class="hero-sub">// REACTION FORCE TRAINING SPACE //</p>
+  <p class="hero-desc">
+    一帶一限定活動，填寫表單後<br>
+    私訊 LINE 即可領取 10天體驗券<br>
+    <span style="font-size:12px;color:var(--muted);letter-spacing:1px;">體驗後加入年約，再送夜纖飲</span>
+  </p>
+  <div class="hero-gifts">
+    <div class="gift-pill pink">🎟️ 10天運動體驗券</div>
+    <div class="gift-pill blue">🌻 年約加入贈夜纖飲</div>
+  </div>
+</div>
+
+<div class="cyber-line"></div>
+
+<div class="form-wrap">
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-text">看到活動公告<br>填寫此表單</div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-text">私訊 LINE 告知<br>我要領取</div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-text">體驗後加入年約<br>即贈夜纖飲</div>
+    </div>
+  </div>
+
+  <div class="notice">
+    <p>
+      <span class="hl-blue">活動說明 ／</span>
+      本活動為「一帶一」限定，需兩人同行方可參與。<br>
+      ✦ 女生帶女生（閨密／朋友）&nbsp; ✦ 女生帶媽媽 &nbsp; ✦ 男生帶媽媽<br><br>
+      <span class="hl-blue">一人填寫即可</span>，填寫時請一併填入同行者資料。
+      填寫後私訊 LINE 官方帳號告知已填寫，確認後安排領取
+      <span class="hl-blue">10天運動體驗入場券</span>兩人各乙份。<br><br>
+      體驗期結束後，加入<span class="hl-blue">年約會籍</span>即贈送
+      <span class="hl-blue">值芮堂 GABA 日葵夜纖飲（果凍條）</span>乙份。<br>
+      活動領取期限至 <span class="hl-blue">2025 年 5 月 31 日</span>止，數量有限，領完為止。
+    </p>
+  </div>
+
+  <form id="main-form">
+
+    <p class="section-title pink-label">基本資料</p>
+    <div class="cyber-box">
+      <div class="field-group two-col">
+        <div>
+          <label>姓名<span class="req">*</span></label>
+          <input type="text" name="name" placeholder="你的名字" required>
+        </div>
+        <div>
+          <label>電話<span class="req">*</span></label>
+          <input type="tel" name="phone" placeholder="0912-345-678" required>
+        </div>
+      </div>
+      <div class="field-group two-col">
+        <div>
+          <label>Email<span class="req">*</span></label>
+          <input type="email" name="email" placeholder="email@example.com" required>
+        </div>
+        <div>
+          <label>LINE ID</label>
+          <input type="text" name="line_id" placeholder="選填">
+        </div>
+      </div>
+    </div>
+
+    <p class="section-title pink-label">同行者資料</p>
+    <div class="cyber-box">
+      <div class="field-group">
+        <label>你們的關係<span class="req">*</span></label>
+        <select name="pair_type" required>
+          <option value="">請選擇</option>
+          <option>女生帶女生（閨密 / 朋友）</option>
+          <option>女生帶媽媽</option>
+          <option>男生帶媽媽</option>
+        </select>
+      </div>
+      <div class="field-group two-col">
+        <div>
+          <label>同行者姓名<span class="req">*</span></label>
+          <input type="text" name="companion_name" placeholder="同行者的名字" required>
+        </div>
+        <div>
+          <label>同行者電話<span class="req">*</span></label>
+          <input type="tel" name="companion_phone" placeholder="0912-345-678" required>
+        </div>
+      </div>
+      <div class="field-group two-col" style="margin-bottom:0">
+        <div>
+          <label>同行者 Email</label>
+          <input type="email" name="companion_email" placeholder="選填">
+        </div>
+        <div>
+          <label>同行者 LINE ID</label>
+          <input type="text" name="companion_line_id" placeholder="選填">
+        </div>
+      </div>
+    </div>
+
+    <p class="section-title blue-label">活動相關</p>
+    <div class="cyber-box">
+      <div class="field-group">
+        <label>從哪裡看到這個活動？<span class="req">*</span></label>
+        <select name="source" required>
+          <option value="">請選擇</option>
+          <option>Instagram 貼文</option>
+          <option>Threads</option>
+          <option>朋友分享</option>
+          <option>其他</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label>目前有在固定訓練嗎？</label>
+        <select name="training_status">
+          <option value="">請選擇</option>
+          <option>有，每週固定訓練</option>
+          <option>偶爾，不太規律</option>
+          <option>目前沒有，想重新開始</option>
+          <option>這是我第一次嘗試</option>
+        </select>
+      </div>
+      <div class="field-group" style="margin-bottom:0">
+        <label>備註</label>
+        <textarea name="note" placeholder="例如：有舊傷需要注意、想了解更多方案…"></textarea>
+      </div>
+    </div>
+
+    <button type="submit" id="submit-btn" class="submit-btn">送出報名</button>
+
+    <div id="msg-success">
+      <h3>REGISTRATION COMPLETE</h3>
+      <p>我們已收到你的資料！<br>記得私訊 LINE 告知「我要領取」，我們會盡快回覆你。</p>
+    </div>
+    <div id="msg-error">ERROR — 送出失敗，請稍後再試或直接私訊 LINE。</div>
+
+  </form>
+</div>
+
+<div class="footer">
+  反作用力訓練空間 &nbsp;／&nbsp; 高雄市鼓山區美術東五路61號2樓 &nbsp;／&nbsp; @reaction.force
+</div>
+
+<script>
+  const GAS_URL = 'https://script.google.com/macros/s/AKfycbx4gOQDuoR0QaFGLd-qmcsg2sTr9jnKDcCYVyPvI9trlOt-kOUznrbjFa-3Jc3Xh10Y/exec';
+  document.getElementById('main-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'SENDING…';
+    const fd = new FormData(this);
+    const data = {};
+    fd.forEach((v, k) => data[k] = v);
+    data.submitted_at = new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' });
+    try {
+      await fetch(GAS_URL, { method: 'POST', body: JSON.stringify(data) });
+      document.getElementById('msg-success').style.display = 'block';
+      document.getElementById('msg-error').style.display = 'none';
+      this.reset();
+      btn.style.display = 'none';
+    } catch (err) {
+      document.getElementById('msg-error').style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = '送出報名';
+    }
+  });
+</script>
+<style>
+@keyframes petalFall {
+  0%   { transform: translateY(-60px) rotate(0deg) translateX(0px); opacity: 0; }
+  8%   { opacity: 1; }
+  90%  { opacity: 0.7; }
+  100% { transform: translateY(calc(100vh + 60px)) rotate(720deg) translateX(var(--drift)); opacity: 0; }
+}
+.petal {
+  position: fixed;
+  top: 0;
+  pointer-events: none;
+  z-index: 1;
+  animation: petalFall linear infinite;
+  filter: blur(0.3px);
+}
+</style>
+<script>
+(function(){
+  const colors = [
+    '#ff2d78','#ff6aaa','#ff99cc','#ffbbdd',
+    '#00d4ff','#44ddff','#88eeff',
+    '#7b2fff','#aa66ff','#cc99ff',
+    '#ff44aa','#c4185a'
+  ];
+
+  function makePetalPath(w, h) {
+    const cp1x = w * 0.8, cp1y = -h * 0.1;
+    const cp2x = w * 1.0, cp2y = h * 0.6;
+    const cp3x = w * 0.5, cp3y = h * 1.1;
+    const cp4x = -w * 0.1, cp4y = h * 0.9;
+    const cp5x = -w * 0.2, cp5y = h * 0.3;
+    return `M0,0 C${cp1x},${cp1y} ${cp2x},${cp2y} ${w*0.5},${h} C${cp3x},${cp3y} ${cp4x},${cp4y} 0,0 Z`;
+  }
+
+  function createPetal() {
+    const layer = document.getElementById('petal-layer');
+    if (!layer) return;
+
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const w = 8 + Math.random() * 14;
+    const h = w * (1.4 + Math.random() * 0.6);
+    const left = Math.random() * 100;
+    const duration = 18 + Math.random() * 20;
+    const delay = Math.random() * -duration;
+    const drift = (Math.random() - 0.5) * 120;
+    const opacity = 0.05 + Math.random() * 0.05;
+    const initRot = Math.random() * 360;
+
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('width', w + 4);
+    svg.setAttribute('height', h + 4);
+    svg.setAttribute('viewBox', `${-2} ${-2} ${w+4} ${h+4}`);
+    svg.style.cssText = `
+      position:fixed; top:0; left:${left}%;
+      pointer-events:none; z-index:1; opacity:${opacity};
+      animation:petalFall ${duration}s ${delay}s linear infinite;
+      --drift:${drift}px;
+      transform-origin:center center;
+    `;
+
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', makePetalPath(w, h));
+    path.setAttribute('fill', color);
+    path.setAttribute('transform', `rotate(${initRot},${w/2},${h/2})`);
+
+    const midvein = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    midvein.setAttribute('x1', '0'); midvein.setAttribute('y1', '0');
+    midvein.setAttribute('x2', w*0.5); midvein.setAttribute('y2', h);
+    midvein.setAttribute('stroke', 'rgba(255,255,255,0.15)');
+    midvein.setAttribute('stroke-width', '0.5');
+    midvein.setAttribute('transform', `rotate(${initRot},${w/2},${h/2})`);
+
+    svg.appendChild(path);
+    svg.appendChild(midvein);
+    layer.appendChild(svg);
+
+    setTimeout(() => { if(svg.parentNode) svg.parentNode.removeChild(svg); }, (duration + Math.abs(delay)) * 1000 + 2000);
+  }
+
+  for (let i = 0; i < 10; i++) {
+    setTimeout(createPetal, i * 600);
+  }
+  setInterval(createPetal, 3000);
+})();
+</script>
+</body>
+</html>
